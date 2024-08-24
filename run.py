@@ -9,13 +9,13 @@ from optimum.onnxruntime import ORTModelForSpeechSeq2Seq
 from pydub import AudioSegment
 
 # Check args
-if len(sys.argv) != 3:
-    print("Usage: python run.py <model_name> <model_path>")
+if len(sys.argv) != 4:
+    print("Usage: python run.py <model_name> <model_path> <speech_file>")
     exit(1)
 
 
 def audiosegment_to_librosawav(audiosegment):
-    channel_sounds = audiosegment.split_to_mono()[:1]  # only select the first channel
+    channel_sounds = audiosegment.split_to_mono()[:1]
     samples = [s.get_array_of_samples() for s in channel_sounds]
 
     fp_arr = np.array(samples).T.astype(np.float32)
@@ -27,6 +27,7 @@ def audiosegment_to_librosawav(audiosegment):
 
 model_name = sys.argv[1]
 model_path = sys.argv[2]
+filename = sys.argv[3]
 
 processor = WhisperProcessor.from_pretrained(model_name)
 
@@ -43,7 +44,7 @@ model = ORTModelForSpeechSeq2Seq(
 )
 
 sr = 16_000
-waveform = AudioSegment.from_file("short_1_16k.wav").set_frame_rate(sr)
+waveform = AudioSegment.from_file(filename).set_frame_rate(sr)
 waveform = audiosegment_to_librosawav(waveform)
 
 print("audio_data shape:", waveform.shape)

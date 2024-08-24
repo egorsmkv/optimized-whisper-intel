@@ -33,7 +33,7 @@ pip install -U -r requirements-dev.txt
 ### Download an audio file
 
 ```
-wget -O short_1_16k.wav https://github.com/egorsmkv/wav2vec2-uk-demo/raw/master/short_1_16k.wav
+wget -O ukrainian_speech.wav https://github.com/egorsmkv/wav2vec2-uk-demo/raw/master/short_1_16k.wav
 ```
 
 ### Download quantized models
@@ -49,11 +49,13 @@ huggingface-cli download Intel/whisper-small-onnx-int4-inc --local-dir-use-symli
 ### Run the model
 
 ```
-python run.py "openai/whisper-large-v2" "whisper-large-v2-onnx-int4-inc"
+python run.py "openai/whisper-large-v2" "whisper-large-v2-onnx-int4-inc" "ukrainian_speech.wav"
 
-python run.py "openai/whisper-medium" "whisper-medium-onnx-int4-inc"
+python run.py "openai/whisper-medium" "whisper-medium-onnx-int4-inc" "ukrainian_speech.wav"
 
-python run.py "openai/whisper-small" "whisper-small-onnx-int4-inc"
+python run.py "openai/whisper-small" "whisper-small-onnx-int4-inc" "ukrainian_speech.wav"
+
+python run.py "openai/whisper-small" "whisper-small-onnx-int4-inc" "sample_english.wav"
 ```
 
 ### Outputs
