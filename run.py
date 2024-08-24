@@ -44,12 +44,10 @@ print('audio_data shape:', waveform.shape)
 inputs = processor(
     waveform, sampling_rate=sr, return_attention_mask=True, return_tensors="pt",
 )
-print(inputs)
 
-generated_ids = model.generate(inputs.input_features, attention_mask=inputs.attention_mask)[0]
+generated_ids = model.generate(inputs=inputs.input_features, attention_mask=inputs.attention_mask)
 
-transcription = processor.decode(generated_ids, skip_special_tokens=True)
+transcriptions = processor.batch_decode(generated_ids, skip_special_tokens=True)
 
-transcription = transcription.strip()
-
-print(transcription)
+for transcription in transcriptions:
+    print(transcription.strip())
