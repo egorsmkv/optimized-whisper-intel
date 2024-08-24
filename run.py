@@ -25,11 +25,13 @@ model = ORTModelForSpeechSeq2Seq(
 
 audio_data, sr = torchaudio.load("short_1_16k.wav")
 
-print(audio_data.shape, sr)
+print('audio_data shape:', audio_data.shape, sr)
 
 input_features = processor(
     audio_data, sampling_rate=sr, return_tensors="pt"
 ).input_features
+
+print('input_features shape:', input_features.shape)
 
 predicted_ids = model.generate(input_features)[0]
 transcription = processor.decode(predicted_ids)
