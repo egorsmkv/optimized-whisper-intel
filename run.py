@@ -47,7 +47,8 @@ input_features = processor(
 
 print('input_features shape:', input_features.shape)
 
-predicted_ids = model.generate(input_features)[0]
-transcription = processor.decode(predicted_ids)
+generated_ids = model.generate(input_features)[0]
+
+transcription = processor.batch_decode(generated_ids, skip_special_tokens=True)
 
 print(transcription)
