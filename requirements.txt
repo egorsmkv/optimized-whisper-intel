@@ -1,5 +1,3 @@
-ipykernel
-
 numpy<2
 
 optimum
