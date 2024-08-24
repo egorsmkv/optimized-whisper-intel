@@ -1,9 +1,22 @@
 import os
 
-import torchaudio
+import numpy as np
 
 from transformers import WhisperProcessor, PretrainedConfig
 from optimum.onnxruntime import ORTModelForSpeechSeq2Seq
+
+from pydub import AudioSegment
+
+def audiosegment_to_librosawav(audiosegment):
+    channel_sounds = audiosegment.split_to_mono()[:1]   # only select the first channel
+    samples = [s.get_array_of_samples() for s in channel_sounds]
+
+    fp_arr = np.array(samples).T.astype(np.float32)
+    fp_arr /= np.iinfo(samples[0].typecode).max
+    fp_arr = fp_arr.reshape(-1)
+
+    return fp_arr
+
 
 model_name = "openai/whisper-large-v2"
 model_path = "whisper-large-v2-onnx-int4-inc"
@@ -22,13 +35,14 @@ model = ORTModelForSpeechSeq2Seq(
     sessions[0], sessions[1], model_config, model_path, sessions[2]
 )
 
+sr = 16_000
+waveform = AudioSegment.from_file("short_1_16k.wav").set_frame_rate(sr)
+waveform = audiosegment_to_librosawav(waveform)
 
-audio_data, sr = torchaudio.load("short_1_16k.wav")
-
-print('audio_data shape:', audio_data.shape, sr)
+print('audio_data shape:', waveform.shape)
 
 input_features = processor(
-    audio_data, sampling_rate=sr, return_tensors="pt"
+    waveform, sampling_rate=sr, return_tensors="pt"
 ).input_features
 
 print('input_features shape:', input_features.shape)
