@@ -56,6 +56,27 @@ python run.py "openai/whisper-medium" "whisper-medium-onnx-int4-inc"
 python run.py "openai/whisper-small" "whisper-small-onnx-int4-inc"
 ```
 
+### Outputs
+
+**whisper-large-v2-onnx-int4-inc**:
+
+```
+Taiwan and the United States are important strategic partners. But there is a difference. The United States has a special law that stipulates that if China attacks Taiwan, the American military must protect it.
+```
+
+**whisper-medium-onnx-int4-inc**:
+
+```
+Taiwan is a strategic partner, but there is a difference. The US has a special law that provides that if China attacks Taiwan, the US military must protect it.
+```
+
+**whisper-small-onnx-int4-inc**:
+
+```
+That we've had a
+```
+
+> **Note**: It didn't recognize the Ukrainian speech at all, only English speech at the end of the audio.
 
 ## Development
 
