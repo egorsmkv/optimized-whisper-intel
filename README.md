@@ -17,6 +17,6 @@ uv pip install -r requirements-dev.txt
 ## Development
 
 ```
-ruff check whisper-intel-optimized.ipynb
-ruff format whisper-intel-optimized.ipynb
+ruff check
+ruff format
 ```
