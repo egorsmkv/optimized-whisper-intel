@@ -45,7 +45,10 @@ inputs = processor(
     waveform, sampling_rate=sr, return_attention_mask=True, return_tensors="pt",
 )
 
-generated_ids = model.generate(inputs=inputs.input_features, attention_mask=inputs.attention_mask)
+generated_ids = model.generate(
+    input_features=inputs.input_features,
+    attention_mask=inputs.attention_mask,
+)
 
 transcriptions = processor.batch_decode(generated_ids, skip_special_tokens=True)
 
