@@ -1,9 +1,9 @@
 numpy<2
 
 optimum
-accelerate
 transformers
-onnxruntime
+
+onnxruntime==1.16.0
 onnx
 
-PySoundFile
+soundfile
