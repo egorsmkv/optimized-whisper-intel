@@ -42,13 +42,15 @@ waveform = audiosegment_to_librosawav(waveform)
 print('audio_data shape:', waveform.shape)
 
 input_features = processor(
-    waveform, sampling_rate=sr, return_tensors="pt", padding="longest", return_attention_mask=True
+    waveform, sampling_rate=sr, return_tensors="pt",
 ).input_features
 
 print('input_features shape:', input_features.shape)
 
 generated_ids = model.generate(input_features)[0]
 
-transcription = processor.batch_decode(generated_ids, skip_special_tokens=True)
+transcription = processor.decode(generated_ids, skip_special_tokens=True)
+
+transcription = transcription.strip()
 
 print(transcription)
