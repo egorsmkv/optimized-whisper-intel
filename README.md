@@ -30,12 +30,30 @@ pip install -U -r requirements-dev.txt
 
 ## Run
 
+### Download an audio file
+
+```
+wget -O short_1_16k.wav https://github.com/egorsmkv/wav2vec2-uk-demo/raw/master/short_1_16k.wav
+```
+
+### Download quantized models
+
 ```
 huggingface-cli download Intel/whisper-large-v2-onnx-int4-inc --local-dir-use-symlinks False --local-dir ./whisper-large-v2-onnx-int4-inc
 
-wget -O short_1_16k.wav https://github.com/egorsmkv/wav2vec2-uk-demo/raw/master/short_1_16k.wav
+huggingface-cli download Intel/whisper-medium-onnx-int4-inc --local-dir-use-symlinks False --local-dir ./whisper-medium-onnx-int4-inc
 
-python run.py
+huggingface-cli download Intel/whisper-small-onnx-int4-inc --local-dir-use-symlinks False --local-dir ./whisper-small-onnx-int4-inc
+```
+
+### Run the model
+
+```
+python run.py "openai/whisper-large-v2" "whisper-large-v2-onnx-int4-inc"
+
+python run.py "openai/whisper-medium" "whisper-medium-onnx-int4-inc"
+
+python run.py "openai/whisper-small" "whisper-small-onnx-int4-inc"
 ```
 
 

@@ -1,4 +1,5 @@
 import os
+import sys
 
 import numpy as np
 
@@ -6,6 +7,11 @@ from transformers import WhisperProcessor, PretrainedConfig
 from optimum.onnxruntime import ORTModelForSpeechSeq2Seq
 
 from pydub import AudioSegment
+
+# Check args
+if len(sys.argv) != 3:
+    print("Usage: python run.py <model_name> <model_path>")
+    exit(1)
 
 
 def audiosegment_to_librosawav(audiosegment):
@@ -19,8 +25,8 @@ def audiosegment_to_librosawav(audiosegment):
     return fp_arr
 
 
-model_name = "openai/whisper-large-v2"
-model_path = "whisper-large-v2-onnx-int4-inc"
+model_name = sys.argv[1]
+model_path = sys.argv[2]
 
 processor = WhisperProcessor.from_pretrained(model_name)
 
