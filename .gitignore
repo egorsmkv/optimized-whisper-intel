@@ -1,0 +1,4 @@
+.venv/
+.ruff_cache/
+
+whisper-large-v2-onnx-int4-inc/

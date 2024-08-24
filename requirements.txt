@@ -1,0 +1,9 @@
+ipykernel
+
+numpy<2
+
+optimum
+accelerate
+transformers
+onnxruntime
+onnx
