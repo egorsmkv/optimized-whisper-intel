@@ -41,13 +41,12 @@ waveform = audiosegment_to_librosawav(waveform)
 
 print('audio_data shape:', waveform.shape)
 
-input_features = processor(
-    waveform, sampling_rate=sr, return_tensors="pt",
-).input_features
+inputs = processor(
+    waveform, sampling_rate=sr, return_attention_mask=True, return_tensors="pt",
+)
+print(inputs)
 
-print('input_features shape:', input_features.shape)
-
-generated_ids = model.generate(input_features)[0]
+generated_ids = model.generate(inputs.input_features, attention_mask=inputs.attention_mask)[0]
 
 transcription = processor.decode(generated_ids, skip_special_tokens=True)
 

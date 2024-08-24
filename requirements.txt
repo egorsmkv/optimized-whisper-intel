@@ -1,7 +1,7 @@
 optimum
 transformers
 
-onnxruntime==1.17.1
+onnxruntime==1.19.0
 onnx
 
 soundfile
