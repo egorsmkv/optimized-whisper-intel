@@ -1,8 +1,16 @@
-## Install
+# `whisper-intel-optimized`
+
+## Open Issues
+
+- https://huggingface.co/Intel/whisper-large-v2-onnx-int4-inc/discussions/3
+
+## Install requirements
 
 ```
 apt install python3.12-venv git-lfs
 ```
+
+## Install
 
 ```
 git clone https://github.com/egorsmkv/whisper-intel-optimized
@@ -19,9 +27,7 @@ pip install -U light-the-torch
 ltt install torch torchaudio
 
 pip install -U -r requirements.txt
-
-# in development mode
-pip install -r requirements-dev.txt
+pip install -U -r requirements-dev.txt
 ```
 
 ## Run
@@ -33,6 +39,7 @@ wget -O short_1_16k.wav https://github.com/egorsmkv/wav2vec2-uk-demo/raw/master/
 
 python run.py
 ```
+
 
 ## Development
 
