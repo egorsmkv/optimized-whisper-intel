@@ -1,8 +1,6 @@
 # `whisper-intel-optimized`
 
-## Open Issues
-
-- https://huggingface.co/Intel/whisper-large-v2-onnx-int4-inc/discussions/3
+Your CPU must have AVX512 support to run this model, run `lscpu` to check it.
 
 ## Install requirements
 
