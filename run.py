@@ -7,8 +7,9 @@ from optimum.onnxruntime import ORTModelForSpeechSeq2Seq
 
 from pydub import AudioSegment
 
+
 def audiosegment_to_librosawav(audiosegment):
-    channel_sounds = audiosegment.split_to_mono()[:1]   # only select the first channel
+    channel_sounds = audiosegment.split_to_mono()[:1]  # only select the first channel
     samples = [s.get_array_of_samples() for s in channel_sounds]
 
     fp_arr = np.array(samples).T.astype(np.float32)
@@ -39,10 +40,13 @@ sr = 16_000
 waveform = AudioSegment.from_file("short_1_16k.wav").set_frame_rate(sr)
 waveform = audiosegment_to_librosawav(waveform)
 
-print('audio_data shape:', waveform.shape)
+print("audio_data shape:", waveform.shape)
 
 inputs = processor(
-    waveform, sampling_rate=sr, return_attention_mask=True, return_tensors="pt",
+    waveform,
+    sampling_rate=sr,
+    return_attention_mask=True,
+    return_tensors="pt",
 )
 
 generated_ids = model.generate(
