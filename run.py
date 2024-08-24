@@ -42,7 +42,7 @@ waveform = audiosegment_to_librosawav(waveform)
 print('audio_data shape:', waveform.shape)
 
 input_features = processor(
-    waveform, sampling_rate=sr, return_tensors="pt"
+    waveform, sampling_rate=sr, return_tensors="pt", padding="longest", return_attention_mask=True
 ).input_features
 
 print('input_features shape:', input_features.shape)

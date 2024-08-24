@@ -7,7 +7,7 @@
 ## Install requirements
 
 ```
-apt install python3.12-venv git-lfs
+apt install python3.12-venv git-lfs ffmpeg
 ```
 
 ## Install
