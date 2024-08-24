@@ -1,7 +1,7 @@
 ## Install
 
 ```
-apt install python3.12-venv
+apt install python3.12-venv git-lfs
 ```
 
 ```
@@ -27,6 +27,8 @@ pip install -r requirements-dev.txt
 ## Run
 
 ```
+huggingface-cli download Intel/whisper-large-v2-onnx-int4-inc --local-dir-use-symlinks False --local-dir ./whisper-large-v2-onnx-int4-inc
+
 wget -O short_1_16k.wav https://github.com/egorsmkv/wav2vec2-uk-demo/raw/master/short_1_16k.wav
 
 python run.py
