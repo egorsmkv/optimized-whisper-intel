@@ -1,4 +1,4 @@
-# `whisper-optimized-intel`
+# Optimized Whisper for Intel
 
 Your CPU must have AVX512 support to run this model, run `lscpu` to check it.
 
