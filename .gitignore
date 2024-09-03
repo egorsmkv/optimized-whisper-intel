@@ -2,3 +2,6 @@
 .ruff_cache/
 
 whisper-large-v2-onnx-int4-inc/
+whisper-medium-onnx-int4-inc/
+
+ukrainian_speech.wav

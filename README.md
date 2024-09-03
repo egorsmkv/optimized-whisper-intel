@@ -1,6 +1,9 @@
 # Optimized Whisper for Intel
 
-Your CPU must have AVX512 support to run this model, run `lscpu` to check it.
+🚨🚨🚨 ATTENTION 🚨🚨🚨:
+
+> Your CPU must have AVX512 support to run this model, run `lscpu` to check it.
+
 
 ## Install requirements
 
@@ -22,7 +25,7 @@ source .venv/bin/activate
 pip install --upgrade pip
 
 pip install -U light-the-torch
-ltt install torch torchaudio
+ltt install torch
 
 pip install -U -r requirements.txt
 pip install -U -r requirements-dev.txt

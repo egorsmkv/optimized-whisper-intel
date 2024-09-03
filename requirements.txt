@@ -2,8 +2,7 @@ optimum
 transformers
 
 onnxruntime==1.19.0
+onnxruntime-gpu==1.19.0
 onnx
 
-soundfile
-librosa
-pydub
+sphn

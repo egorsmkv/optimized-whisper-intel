@@ -23,6 +23,7 @@ sessions = ORTModelForSpeechSeq2Seq.load_model(
     os.path.join(model_path, "encoder_model.onnx"),
     os.path.join(model_path, "decoder_model.onnx"),
     os.path.join(model_path, "decoder_with_past_model.onnx"),
+    provider="CUDAExecutionProvider",
 )
 
 model = ORTModelForSpeechSeq2Seq(
