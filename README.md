@@ -8,7 +8,8 @@
 ## Install requirements
 
 ```
-apt install python3.12-venv git-lfs ffmpeg
+
+apt install git-lfs ffmpeg
 ```
 
 ## Install
@@ -18,14 +19,10 @@ git clone https://github.com/egorsmkv/whisper-intel-optimized
 
 cd whisper-intel-optimized
 
-python3.12 -m venv .venv
+uv venv --python 3.12 && source .venv/bin/activate
 
-source .venv/bin/activate
-
-pip install -r requirements.txt
-pip install -r requirements-dev.txt
-
-ltt install torch
+uv pip install -r requirements.txt
+uv pip install -r requirements-dev.txt
 ```
 
 ## Run
