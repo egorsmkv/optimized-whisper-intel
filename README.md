@@ -8,6 +8,7 @@
 ## Install requirements
 
 ```
+curl -LsSf https://astral.sh/uv/install.sh | sh
 
 apt install git-lfs ffmpeg
 ```
