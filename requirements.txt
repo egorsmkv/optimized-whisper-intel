@@ -6,3 +6,5 @@ onnxruntime-gpu==1.19.0
 onnx
 
 sphn
+
+light-the-torch
