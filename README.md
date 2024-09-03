@@ -10,7 +10,7 @@
 ```
 curl -LsSf https://astral.sh/uv/install.sh | sh
 
-apt install git-lfs ffmpeg
+apt update && apt install git-lfs ffmpeg
 ```
 
 ## Install
