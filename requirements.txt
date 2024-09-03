@@ -1,10 +1,13 @@
 torch
 
-optimum[onnxruntime-gpu]
+#optimum[onnxruntime-gpu]
+#onnxruntime-gpu==1.19.0
+
+optimum
+onnxruntime==1.19.0
+
 transformers
 
-onnxruntime==1.19.0
-#onnxruntime-gpu==1.19.0
 onnx
 
 sphn
